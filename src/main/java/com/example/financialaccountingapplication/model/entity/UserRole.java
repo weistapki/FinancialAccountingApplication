@@ -1,27 +1,28 @@
-package com.example.financialaccountingapplication.model;
+package com.example.financialaccountingapplication.model.entity;
 
-import com.example.financialaccountingapplication.model.enums.OrderStatus;
+import com.example.financialaccountingapplication.model.entity.User;
+import com.example.financialaccountingapplication.model.enums.Role;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
 @Entity
-@Table(name = "statuses")
+@Table(name = "user_roles")
 @Data
 @NoArgsConstructor
-public class Status {
+public class UserRole {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToOne(mappedBy = "status")
-    private Transaction transaction;
+    @OneToOne(mappedBy = "userRole")
+    private User user;
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private OrderStatus orderStatus;
+    private Role role;
 
     // Конструкторы, геттеры, сеттеры и другие методы
     // ...

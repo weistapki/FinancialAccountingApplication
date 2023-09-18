@@ -1,4 +1,4 @@
-package com.example.financialaccountingapplication.model;
+package com.example.financialaccountingapplication.model.entity;
 
 
 import com.example.financialaccountingapplication.model.enums.TransactionType;

@@ -1,6 +1,6 @@
 package com.example.financialaccountingapplication.repository;
 
-import com.example.financialaccountingapplication.model.Transaction;
+import com.example.financialaccountingapplication.model.entity.Transaction;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
