@@ -1,5 +1,6 @@
 package com.example.financialaccountingapplication.service.impl;
 
+
 import com.example.financialaccountingapplication.repository.UserRepository;
 import com.example.financialaccountingapplication.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,5 +29,34 @@ public class UserServiceImpl implements UserService {
     public Optional<User> getUserById(Long id) {
         return userRepository.findById(id);
     }
+
+    @Override
+    public User saveUser(User user) {
+        return userRepository.save(user);
+    }
+
+    @Override
+    public void deleteUser(Long id) {
+        userRepository.deleteById(id);
+    }
+    @Override
+    public User updateUser(Long id, User updatedUser) {
+        return userRepository.findById(id)
+                .map(existingUser -> {
+                    // Используем сгенерированные геттеры и сеттеры для обновления полей
+                    existingUser.setUsername(updatedUser.getUsername());
+                    existingUser.setFirstName(updatedUser.getFirstName());
+                    existingUser.setLastName(updatedUser.getLastName());
+                    existingUser.setEmail(updatedUser.getEmail());
+
+                    // Другие поля для обновления
+                    // ...
+
+                    // Сохраняем обновленного пользователя и возвращаем его
+                    return userRepository.save(existingUser);
+                })
+                .orElse(null); // Если пользователь не найден, возвращаем null
+    }
+
 }
 
