@@ -35,11 +35,7 @@ public class UserController {
 
     @PutMapping("/{id}")
     public User updateUser(@PathVariable Long id, @RequestBody User user) {
-        if (userService.getUserById(id).isPresent()) {
-            user.setId(id);
-            return userService.saveUser(user);
-        }
-        return null;
+       return userService.updateUser(id,user);
     }
 
     @DeleteMapping("/{id}")

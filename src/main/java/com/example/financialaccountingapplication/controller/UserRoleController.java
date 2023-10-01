@@ -35,11 +35,7 @@ public class UserRoleController {
 
     @PutMapping("/{id}")
     public UserRole updateUserRole(@PathVariable Long id, @RequestBody UserRole userRole) {
-        if (userRoleService.getUserRoleById(id).isPresent()) {
-            userRole.setId(id);
-            return userRoleService.saveUserRole(userRole);
-        }
-        return null;
+        return userRoleService.updateUserRole(id,userRole);
     }
 
     @DeleteMapping("/{id}")

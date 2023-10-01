@@ -33,4 +33,19 @@ public class UserServiceImpl implements UserService {
     public void deleteUser(Long id) {
         userRepository.deleteById(id);
     }
+    @Override
+    public User updateUser(Long id, User updatedUser) {
+        return userRepository.findById(id)
+                .map(existingUser -> {
+                    existingUser.setUsername(updatedUser.getUsername());
+                    existingUser.setPassword(updatedUser.getPassword());
+                    existingUser.setFirstName(updatedUser.getFirstName());
+                    existingUser.setLastName(updatedUser.getLastName());
+                    existingUser.setEmail(updatedUser.getEmail());
+                    // Другие поля для обновления
+
+                    return userRepository.save(existingUser);
+                })
+                .orElse(null); // Пользователь не найден, обновление не выполнено
+    }
 }

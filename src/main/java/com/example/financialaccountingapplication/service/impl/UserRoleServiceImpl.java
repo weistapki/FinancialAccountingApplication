@@ -38,5 +38,16 @@ public class UserRoleServiceImpl implements UserRoleService {
     public void deleteUserRole(Long id) {
         userRoleRepository.deleteById(id);
     }
+    @Override
+    public UserRole updateUserRole(Long id, UserRole updatedUserRole) {
+        return userRoleRepository.findById(id)
+                .map(existingUserRole -> {
+                    existingUserRole.setRole(updatedUserRole.getRole());
+                    // Другие поля для обновления
+
+                    return userRoleRepository.save(existingUserRole);
+                })
+                .orElse(null); // Роль пользователя не найдена, обновление не выполнено
+    }
 }
 
