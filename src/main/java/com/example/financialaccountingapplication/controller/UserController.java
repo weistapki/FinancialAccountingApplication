@@ -1,12 +1,12 @@
 package com.example.financialaccountingapplication.controller;
 
+
+import com.example.financialaccountingapplication.model.entity.User;
 import com.example.financialaccountingapplication.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/users")
@@ -21,12 +21,11 @@ public class UserController {
 
     @GetMapping("/")
     public List<User> getAllUsers() {
-        return userService.getAllUsers();
+        return userService.getAllUser();
     }
-
     @GetMapping("/{id}")
-    public Optional<User> getUserById(@PathVariable Long id) {
-        return userService.getUserById(id);
+    public User getUserById(@PathVariable Long id) {
+        return userService.getUserById(id).orElse(null);
     }
 
     @PostMapping("/")
@@ -36,7 +35,11 @@ public class UserController {
 
     @PutMapping("/{id}")
     public User updateUser(@PathVariable Long id, @RequestBody User user) {
-        return userService.updateUser(id, user);
+        if (userService.getUserById(id).isPresent()) {
+            user.setId(id);
+            return userService.saveUser(user);
+        }
+        return null;
     }
 
     @DeleteMapping("/{id}")
@@ -44,5 +47,3 @@ public class UserController {
         userService.deleteUser(id);
     }
 }
-
-
