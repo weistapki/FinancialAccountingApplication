@@ -1,13 +1,13 @@
 package com.example.financialaccountingapplication.service;
 
-import com.example.financialaccountingapplication.model.entity.Transaction;
+import com.example.financialaccountingapplication.model.entity.dto.TransactionDTO;
 
 import java.util.List;
-import java.util.Optional;
 
 public interface TransactionService {
-    List<Transaction> getAllTransactions();
-    Optional<Transaction> getTransactionById(Long id);
-    Transaction saveTransaction(Transaction transaction);
+    List<TransactionDTO> getAllTransactions();
+    TransactionDTO getTransactionById(Long id);
+    TransactionDTO saveTransaction(TransactionDTO transactionDTO);
     void deleteTransaction(Long id);
+    TransactionDTO updateTransaction(Long id, TransactionDTO transactionDTO);
 }

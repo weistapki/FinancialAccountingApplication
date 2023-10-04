@@ -1,14 +1,14 @@
 package com.example.financialaccountingapplication.service;
-
-import com.example.financialaccountingapplication.model.entity.Status;
-
+import com.example.financialaccountingapplication.model.entity.dto.StatusDTO;
 import java.util.List;
-import java.util.Optional;
+
 
 public interface StatusService {
-    List<Status> getAllStatuses();
-    Optional<Status> getStatusById(Long id);
-    Status saveStatus(Status status);
+    List<StatusDTO> getAllStatuses();
+    StatusDTO getStatusById(Long id);
+    StatusDTO saveStatus(StatusDTO statusDTO);
     void deleteStatus(Long id);
+    StatusDTO updateStatus(Long id, StatusDTO statusDTO);
 }
+
 

@@ -16,5 +16,4 @@ public class TransactionDTO {
     private BigDecimal amount;
     private Date date;
     private TransactionType type;
-    private OrderStatus orderStatus; // Если вам нужно передавать статус заказа
 }

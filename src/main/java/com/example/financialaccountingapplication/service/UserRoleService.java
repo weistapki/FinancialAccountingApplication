@@ -10,5 +10,6 @@ public interface UserRoleService {
     Optional<UserRole> getUserRoleById(Long id);
     UserRole saveUserRole(UserRole userRole);
     void deleteUserRole(Long id);
+    UserRole updateUserRole(Long id, UserRole updatedUserRole);
 }
 

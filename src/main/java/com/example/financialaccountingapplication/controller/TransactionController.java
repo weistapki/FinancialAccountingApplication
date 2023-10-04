@@ -1,6 +1,8 @@
 package com.example.financialaccountingapplication.controller;
 
 import com.example.financialaccountingapplication.model.entity.Transaction;
+import com.example.financialaccountingapplication.model.entity.dto.StatusDTO;
+import com.example.financialaccountingapplication.model.entity.dto.TransactionDTO;
 import com.example.financialaccountingapplication.service.TransactionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -19,27 +21,23 @@ public class TransactionController {
     }
 
     @GetMapping("/")
-    public List<Transaction> getAllTransactions() {
+    public List<TransactionDTO> getAllTransaction() {
         return transactionService.getAllTransactions();
     }
 
     @GetMapping("/{id}")
-    public Transaction getTransactionById(@PathVariable Long id) {
-        return transactionService.getTransactionById(id).orElse(null);
+    public TransactionDTO getTransactionById(@PathVariable Long id) {
+        return transactionService.getTransactionById(id);
     }
 
     @PostMapping("/")
-    public Transaction createTransaction(@RequestBody Transaction transaction) {
-        return transactionService.saveTransaction(transaction);
+    public TransactionDTO createTransaction(@RequestBody TransactionDTO transactionDTO) {
+        return transactionService.saveTransaction(transactionDTO);
     }
 
     @PutMapping("/{id}")
-    public Transaction updateTransaction(@PathVariable Long id, @RequestBody Transaction transaction) {
-        if (transactionService.getTransactionById(id).isPresent()) {
-            transaction.setId(id);
-            return transactionService.saveTransaction(transaction);
-        }
-        return null;
+    public TransactionDTO updateTransaction(@PathVariable Long id, @RequestBody TransactionDTO transactionDTO) {
+        return transactionService.updateTransaction(id, transactionDTO);
     }
 
     @DeleteMapping("/{id}")
