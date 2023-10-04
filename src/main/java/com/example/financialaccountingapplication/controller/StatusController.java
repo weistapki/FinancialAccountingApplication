@@ -1,6 +1,6 @@
 package com.example.financialaccountingapplication.controller;
 
-import com.example.financialaccountingapplication.model.entity.Status;
+import com.example.financialaccountingapplication.model.entity.dto.StatusDTO;
 import com.example.financialaccountingapplication.service.StatusService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -19,27 +19,23 @@ public class StatusController {
     }
 
     @GetMapping("/")
-    public List<Status> getAllStatuses() {
+    public List<StatusDTO> getAllStatuses() {
         return statusService.getAllStatuses();
     }
 
     @GetMapping("/{id}")
-    public Status getStatusById(@PathVariable Long id) {
-        return statusService.getStatusById(id).orElse(null);
+    public StatusDTO getStatusById(@PathVariable Long id) {
+        return statusService.getStatusById(id);
     }
 
     @PostMapping("/")
-    public Status createStatus(@RequestBody Status status) {
-        return statusService.saveStatus(status);
+    public StatusDTO createStatus(@RequestBody StatusDTO statusDTO) {
+        return statusService.saveStatus(statusDTO);
     }
 
     @PutMapping("/{id}")
-    public Status updateStatus(@PathVariable Long id, @RequestBody Status status) {
-        if (statusService.getStatusById(id).isPresent()) {
-            status.setId(id);
-            return statusService.saveStatus(status);
-        }
-        return null;
+    public StatusDTO updateStatus(@PathVariable Long id, @RequestBody StatusDTO statusDTO) {
+        return statusService.updateStatus(id, statusDTO);
     }
 
     @DeleteMapping("/{id}")
@@ -47,4 +43,5 @@ public class StatusController {
         statusService.deleteStatus(id);
     }
 }
+
 
