@@ -1,16 +1,13 @@
 package com.example.financialaccountingapplication.service;
 
-import com.example.financialaccountingapplication.model.entity.User;
-
-
+import com.example.financialaccountingapplication.model.entity.dto.UserDTO;
 
 import java.util.List;
-import java.util.Optional;
 
 public interface UserService {
-    List<User> getAllUser();
-    Optional<User> getUserById(Long id);
-    User saveUser(User user);
+    List<UserDTO> getAllUsers();
+    UserDTO getUserById(Long id);
+    UserDTO saveUser(UserDTO userDTO);
     void deleteUser(Long id);
-    User updateUser(Long id, User updatedUser);
+    UserDTO updateUser(Long id, UserDTO updatedUserDTO);
 }

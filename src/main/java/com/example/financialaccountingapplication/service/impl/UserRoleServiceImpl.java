@@ -1,6 +1,8 @@
 package com.example.financialaccountingapplication.service.impl;
 
 import com.example.financialaccountingapplication.model.entity.UserRole;
+import com.example.financialaccountingapplication.model.entity.dto.UserRoleDTO;
+import com.example.financialaccountingapplication.model.mapper.UserRoleMapper;
 import com.example.financialaccountingapplication.repository.UserRoleRepository;
 import com.example.financialaccountingapplication.service.UserRoleService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,45 +11,57 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
+import java.util.stream.Collectors;
+
 @Service
 public class UserRoleServiceImpl implements UserRoleService {
 
     private final UserRoleRepository userRoleRepository;
+    private final UserRoleMapper userRoleMapper;
 
     @Autowired
-    public UserRoleServiceImpl(UserRoleRepository userRoleRepository) {
+    public UserRoleServiceImpl(UserRoleRepository userRoleRepository, UserRoleMapper userRoleMapper) {
         this.userRoleRepository = userRoleRepository;
+        this.userRoleMapper = userRoleMapper;
     }
 
     @Override
-    public List<UserRole> getAllUserRoles() {
-        return userRoleRepository.findAll();
+    public List<UserRoleDTO> getAllUserRoles() {
+        List<UserRole> userRoles = userRoleRepository.findAll();
+        return userRoles.stream()
+                .map(userRoleMapper::toUserRoleDTO)
+                .collect(Collectors.toList());
     }
 
     @Override
-    public Optional<UserRole> getUserRoleById(Long id) {
-        return userRoleRepository.findById(id);
+    public UserRoleDTO getUserRoleById(Long id) {
+        Optional<UserRole> userRole = userRoleRepository.findById(id);
+        return userRole.map(userRoleMapper::toUserRoleDTO).orElse(null);
     }
 
     @Override
-    public UserRole saveUserRole(UserRole userRole) {
-        return userRoleRepository.save(userRole);
+    public UserRoleDTO saveUserRole(UserRoleDTO userRoleDTO) {
+        UserRole userRole = userRoleMapper.toUserRole(userRoleDTO);
+        userRole = userRoleRepository.save(userRole);
+        return userRoleMapper.toUserRoleDTO(userRole);
+    }
+
+    @Override
+    public UserRoleDTO updateUserRole(Long id, UserRoleDTO userRoleDTO) {
+        Optional<UserRole> existingUserRole = userRoleRepository.findById(id);
+        if (existingUserRole.isPresent()) {
+            UserRole userRole = userRoleMapper.toUserRole(userRoleDTO);
+            userRole.setId(id);
+            userRole = userRoleRepository.save(userRole);
+            return userRoleMapper.toUserRoleDTO(userRole);
+        }
+        return null;
     }
 
     @Override
     public void deleteUserRole(Long id) {
         userRoleRepository.deleteById(id);
     }
-    @Override
-    public UserRole updateUserRole(Long id, UserRole updatedUserRole) {
-        return userRoleRepository.findById(id)
-                .map(existingUserRole -> {
-                    existingUserRole.setRole(updatedUserRole.getRole());
-                    // Другие поля для обновления
-
-                    return userRoleRepository.save(existingUserRole);
-                })
-                .orElse(null); // Роль пользователя не найдена, обновление не выполнено
-    }
 }
+
 

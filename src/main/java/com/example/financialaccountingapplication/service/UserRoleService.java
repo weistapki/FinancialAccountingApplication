@@ -1,15 +1,15 @@
 package com.example.financialaccountingapplication.service;
 
-import com.example.financialaccountingapplication.model.entity.UserRole;
+import com.example.financialaccountingapplication.model.entity.dto.UserRoleDTO;
 
 import java.util.List;
-import java.util.Optional;
+
 
 public interface UserRoleService {
-    List<UserRole> getAllUserRoles();
-    Optional<UserRole> getUserRoleById(Long id);
-    UserRole saveUserRole(UserRole userRole);
+    List<UserRoleDTO> getAllUserRoles();
+    UserRoleDTO getUserRoleById(Long id);
+    UserRoleDTO saveUserRole(UserRoleDTO userRoleDTO);
+    UserRoleDTO updateUserRole(Long id, UserRoleDTO userRoleDTO);
     void deleteUserRole(Long id);
-    UserRole updateUserRole(Long id, UserRole updatedUserRole);
 }
 
