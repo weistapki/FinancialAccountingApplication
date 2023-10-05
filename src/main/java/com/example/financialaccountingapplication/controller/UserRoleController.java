@@ -1,11 +1,13 @@
 package com.example.financialaccountingapplication.controller;
 
-import com.example.financialaccountingapplication.model.entity.UserRole;
+
+import com.example.financialaccountingapplication.model.entity.dto.UserRoleDTO;
 import com.example.financialaccountingapplication.service.UserRoleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+
 
 @RestController
 @RequestMapping("/user-roles")
@@ -19,23 +21,23 @@ public class UserRoleController {
     }
 
     @GetMapping("/")
-    public List<UserRole> getAllUserRoles() {
+    public List<UserRoleDTO> getAllUserRoles() {
         return userRoleService.getAllUserRoles();
     }
 
     @GetMapping("/{id}")
-    public UserRole getUserRoleById(@PathVariable Long id) {
-        return userRoleService.getUserRoleById(id).orElse(null);
+    public UserRoleDTO getUserRoleById(@PathVariable Long id) {
+        return userRoleService.getUserRoleById(id);
     }
 
     @PostMapping("/")
-    public UserRole createUserRole(@RequestBody UserRole userRole) {
-        return userRoleService.saveUserRole(userRole);
+    public UserRoleDTO createUserRole(@RequestBody UserRoleDTO userRoleDTO) {
+        return userRoleService.saveUserRole(userRoleDTO);
     }
 
     @PutMapping("/{id}")
-    public UserRole updateUserRole(@PathVariable Long id, @RequestBody UserRole userRole) {
-        return userRoleService.updateUserRole(id,userRole);
+    public UserRoleDTO updateUserRole(@PathVariable Long id, @RequestBody UserRoleDTO userRoleDTO) {
+        return userRoleService.updateUserRole(id, userRoleDTO);
     }
 
     @DeleteMapping("/{id}")
@@ -43,3 +45,4 @@ public class UserRoleController {
         userRoleService.deleteUserRole(id);
     }
 }
+

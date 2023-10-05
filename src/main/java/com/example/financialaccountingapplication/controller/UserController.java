@@ -1,7 +1,6 @@
 package com.example.financialaccountingapplication.controller;
 
-
-import com.example.financialaccountingapplication.model.entity.User;
+import com.example.financialaccountingapplication.model.entity.dto.UserDTO;
 import com.example.financialaccountingapplication.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -20,22 +19,23 @@ public class UserController {
     }
 
     @GetMapping("/")
-    public List<User> getAllUsers() {
-        return userService.getAllUser();
+    public List<UserDTO> getAllUsers() {
+        return userService.getAllUsers();
     }
+
     @GetMapping("/{id}")
-    public User getUserById(@PathVariable Long id) {
-        return userService.getUserById(id).orElse(null);
+    public UserDTO getUserById(@PathVariable Long id) {
+        return userService.getUserById(id);
     }
 
     @PostMapping("/")
-    public User createUser(@RequestBody User user) {
-        return userService.saveUser(user);
+    public UserDTO createUser(@RequestBody UserDTO userDTO) {
+        return userService.saveUser(userDTO);
     }
 
     @PutMapping("/{id}")
-    public User updateUser(@PathVariable Long id, @RequestBody User user) {
-       return userService.updateUser(id,user);
+    public UserDTO updateUser(@PathVariable Long id, @RequestBody UserDTO userDTO) {
+        return userService.updateUser(id, userDTO);
     }
 
     @DeleteMapping("/{id}")
@@ -43,3 +43,4 @@ public class UserController {
         userService.deleteUser(id);
     }
 }
+
