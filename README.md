@@ -1,2 +1,3 @@
- Финансовое приложение (Java, Spring Boot, JPA Hibernate, PostgreSQL)
-Это веб-приложение, разработанное на Java с использованием Spring Boot, JPA Hibernate и базы данных PostgreSQL. Проект демонстрирует навыки создания веб-приложений с использованием передовых технологий. Он также включает в себя тестирование на уровне модулей с использованием JUnit и Mockito.
+Financial application (Java, Spring Boot, JPA Hibernate, PostgreSQL)
+It is a web application developed in Java using Spring Boot, JPA Hibernate and PostgreSQL database. The project demonstrates skills in creating web applications using advanced technologies. It also includes unit level testing using JUnit and Mockito.
+
