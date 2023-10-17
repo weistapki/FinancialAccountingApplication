@@ -5,25 +5,19 @@ import com.example.financialaccountingapplication.model.entity.dto.UserRoleDTO;
 import com.example.financialaccountingapplication.model.mapper.UserRoleMapper;
 import com.example.financialaccountingapplication.repository.UserRoleRepository;
 import com.example.financialaccountingapplication.service.UserRoleService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
 import java.util.stream.Collectors;
-
+@AllArgsConstructor
 @Service
 public class UserRoleServiceImpl implements UserRoleService {
 
     private final UserRoleRepository userRoleRepository;
     private final UserRoleMapper userRoleMapper;
-
-    @Autowired
-    public UserRoleServiceImpl(UserRoleRepository userRoleRepository, UserRoleMapper userRoleMapper) {
-        this.userRoleRepository = userRoleRepository;
-        this.userRoleMapper = userRoleMapper;
-    }
 
     @Override
     public List<UserRoleDTO> getAllUserRoles() {
