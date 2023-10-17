@@ -9,4 +9,9 @@ import lombok.Data;
 public class StatusDTO {
     private Long id;
     private OrderStatus orderStatus;
+
+    public StatusDTO(Long id, OrderStatus orderStatus) {
+        this.id = id;
+        this.orderStatus = orderStatus;
+    }
 }
