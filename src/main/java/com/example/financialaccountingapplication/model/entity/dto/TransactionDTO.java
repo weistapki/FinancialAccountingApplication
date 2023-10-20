@@ -1,6 +1,5 @@
 package com.example.financialaccountingapplication.model.entity.dto;
 
-import com.example.financialaccountingapplication.model.enums.OrderStatus;
 import com.example.financialaccountingapplication.model.enums.TransactionType;
 import lombok.Builder;
 import lombok.Data;
@@ -16,4 +15,12 @@ public class TransactionDTO {
     private BigDecimal amount;
     private Date date;
     private TransactionType type;
+
+    public TransactionDTO(Long id, String description, BigDecimal amount, Date date, TransactionType type) {
+        this.id = id;
+        this.description = description;
+        this.amount = amount;
+        this.date = date;
+        this.type = type;
+    }
 }
