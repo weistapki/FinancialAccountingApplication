@@ -6,7 +6,6 @@ import com.example.financialaccountingapplication.model.mapper.StatusMapper;
 import com.example.financialaccountingapplication.repository.StatusRepository;
 import com.example.financialaccountingapplication.service.StatusService;
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

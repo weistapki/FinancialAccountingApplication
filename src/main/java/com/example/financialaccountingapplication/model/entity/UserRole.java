@@ -1,6 +1,5 @@
 package com.example.financialaccountingapplication.model.entity;
 
-import com.example.financialaccountingapplication.model.entity.User;
 import com.example.financialaccountingapplication.model.enums.Role;
 import lombok.Data;
 import lombok.NoArgsConstructor;

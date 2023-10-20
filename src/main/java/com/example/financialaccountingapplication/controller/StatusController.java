@@ -2,21 +2,17 @@ package com.example.financialaccountingapplication.controller;
 
 import com.example.financialaccountingapplication.model.entity.dto.StatusDTO;
 import com.example.financialaccountingapplication.service.StatusService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
+
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-
+@AllArgsConstructor
 @RestController
 @RequestMapping("/statuses")
 public class StatusController {
 
     private final StatusService statusService;
-
-    @Autowired
-    public StatusController(StatusService statusService) {
-        this.statusService = statusService;
-    }
 
     @GetMapping("/")
     public List<StatusDTO> getAllStatuses() {
