@@ -9,4 +9,9 @@ import lombok.Data;
 public class UserRoleDTO {
     private Long id;
     private Role role;
+
+    public UserRoleDTO(Long id, Role role) {
+        this.id = id;
+        this.role = role;
+    }
 }
