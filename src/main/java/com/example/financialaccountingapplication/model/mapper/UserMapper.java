@@ -1,7 +1,7 @@
 package com.example.financialaccountingapplication.model.mapper;
 
 import com.example.financialaccountingapplication.model.entity.User;
-import com.example.financialaccountingapplication.model.entity.dto.UserDTO;
+import com.example.financialaccountingapplication.model.dto.UserDTO;
 import org.springframework.stereotype.Component;
 
 @Component

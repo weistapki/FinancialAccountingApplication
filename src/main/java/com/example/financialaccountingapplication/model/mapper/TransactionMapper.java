@@ -1,11 +1,12 @@
 package com.example.financialaccountingapplication.model.mapper;
 
 import com.example.financialaccountingapplication.model.entity.Transaction;
-import com.example.financialaccountingapplication.model.entity.dto.TransactionDTO;
+import com.example.financialaccountingapplication.model.dto.TransactionDTO;
+import org.springframework.stereotype.Component;
 
 import java.sql.Date;
 
-
+@Component
 public class TransactionMapper {
     public TransactionDTO toTransactionDTO(Transaction transaction) {
         return TransactionDTO.builder()

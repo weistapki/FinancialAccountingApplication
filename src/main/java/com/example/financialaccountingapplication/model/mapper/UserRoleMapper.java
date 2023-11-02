@@ -1,8 +1,10 @@
 package com.example.financialaccountingapplication.model.mapper;
 
 import com.example.financialaccountingapplication.model.entity.UserRole;
-import com.example.financialaccountingapplication.model.entity.dto.UserRoleDTO;
+import com.example.financialaccountingapplication.model.dto.UserRoleDTO;
+import org.springframework.stereotype.Component;
 
+@Component
 public class UserRoleMapper {
 
     public UserRoleDTO toUserRoleDTO(UserRole userRole) {

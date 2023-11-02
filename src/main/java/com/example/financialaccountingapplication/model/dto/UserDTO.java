@@ -1,4 +1,4 @@
-package com.example.financialaccountingapplication.model.entity.dto;
+package com.example.financialaccountingapplication.model.dto;
 
 import lombok.Builder;
 import lombok.Data;

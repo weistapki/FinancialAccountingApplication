@@ -1,6 +1,6 @@
 package com.example.financialaccountingapplication.service;
 
-import com.example.financialaccountingapplication.model.entity.dto.StatusDTO;
+import com.example.financialaccountingapplication.model.dto.StatusDTO;
 import java.util.List;
 
 

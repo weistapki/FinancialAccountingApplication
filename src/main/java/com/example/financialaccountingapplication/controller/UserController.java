@@ -1,6 +1,6 @@
 package com.example.financialaccountingapplication.controller;
 
-import com.example.financialaccountingapplication.model.entity.dto.UserDTO;
+import com.example.financialaccountingapplication.model.dto.UserDTO;
 import com.example.financialaccountingapplication.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

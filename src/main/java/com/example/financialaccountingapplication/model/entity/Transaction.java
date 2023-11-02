@@ -2,11 +2,13 @@ package com.example.financialaccountingapplication.model.entity;
 
 
 import com.example.financialaccountingapplication.model.enums.TransactionType;
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 
-import javax.persistence.*;
+
 import java.math.BigDecimal;
 import java.util.Date;
 
@@ -14,6 +16,7 @@ import java.util.Date;
 @Table(name = "transactions")
 @Data
 @NoArgsConstructor
+@AllArgsConstructor
 public class Transaction {
 
     @Id
@@ -38,7 +41,8 @@ public class Transaction {
     @Column(nullable = false)
     private TransactionType type;
 
-    @OneToOne(mappedBy = "transaction")
+    @OneToOne
+    @JoinColumn(name = "status_id")
     private Status status;
 
     // Конструкторы могут быть опущены благодаря @NoArgsConstructor

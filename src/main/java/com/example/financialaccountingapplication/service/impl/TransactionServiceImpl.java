@@ -1,7 +1,7 @@
 package com.example.financialaccountingapplication.service.impl;
 
 import com.example.financialaccountingapplication.model.entity.Transaction;
-import com.example.financialaccountingapplication.model.entity.dto.TransactionDTO;
+import com.example.financialaccountingapplication.model.dto.TransactionDTO;
 import com.example.financialaccountingapplication.model.mapper.TransactionMapper;
 import com.example.financialaccountingapplication.repository.TransactionRepository;
 import com.example.financialaccountingapplication.service.TransactionService;

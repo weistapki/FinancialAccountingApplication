@@ -1,6 +1,7 @@
 package com.example.financialaccountingapplication.config;
 
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.SecurityConfigurerAdapter;
@@ -26,7 +27,7 @@ import static org.springframework.security.config.Customizer.withDefaults;
 public class SecurityConfig extends SecurityConfigurerAdapter<DefaultSecurityFilterChain, HttpSecurity> {
 
     private final DataSource dataSource;
-
+    @Autowired
     public SecurityConfig(DataSource dataSource) {
         this.dataSource = dataSource;
     }

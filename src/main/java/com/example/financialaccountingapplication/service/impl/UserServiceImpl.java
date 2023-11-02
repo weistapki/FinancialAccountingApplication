@@ -1,7 +1,7 @@
 package com.example.financialaccountingapplication.service.impl;
 
 import com.example.financialaccountingapplication.model.entity.User;
-import com.example.financialaccountingapplication.model.entity.dto.UserDTO;
+import com.example.financialaccountingapplication.model.dto.UserDTO;
 import com.example.financialaccountingapplication.model.mapper.UserMapper;
 import com.example.financialaccountingapplication.repository.UserRepository;
 import com.example.financialaccountingapplication.service.UserService;

@@ -1,6 +1,6 @@
 package com.example.financialaccountingapplication.controller;
 
-import com.example.financialaccountingapplication.model.entity.dto.StatusDTO;
+import com.example.financialaccountingapplication.model.dto.StatusDTO;
 import com.example.financialaccountingapplication.service.StatusService;
 import lombok.AllArgsConstructor;
 

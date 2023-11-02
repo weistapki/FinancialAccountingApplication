@@ -1,8 +1,10 @@
 package com.example.financialaccountingapplication.model.mapper;
 
 import com.example.financialaccountingapplication.model.entity.Status;
-import com.example.financialaccountingapplication.model.entity.dto.StatusDTO;
+import com.example.financialaccountingapplication.model.dto.StatusDTO;
+import org.springframework.stereotype.Component;
 
+@Component
 public class StatusMapper {
 
     public StatusDTO toStatusDTO(Status status) {

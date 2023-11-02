@@ -1,4 +1,4 @@
-package com.example.financialaccountingapplication.model.entity.dto;
+package com.example.financialaccountingapplication.model.dto;
 
 import com.example.financialaccountingapplication.model.enums.OrderStatus;
 import lombok.Builder;
