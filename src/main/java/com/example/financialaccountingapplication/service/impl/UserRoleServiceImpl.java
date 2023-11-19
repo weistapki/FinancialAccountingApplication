@@ -1,7 +1,7 @@
 package com.example.financialaccountingapplication.service.impl;
 
 import com.example.financialaccountingapplication.model.entity.UserRole;
-import com.example.financialaccountingapplication.model.entity.dto.UserRoleDTO;
+import com.example.financialaccountingapplication.model.dto.UserRoleDTO;
 import com.example.financialaccountingapplication.model.mapper.UserRoleMapper;
 import com.example.financialaccountingapplication.repository.UserRoleRepository;
 import com.example.financialaccountingapplication.service.UserRoleService;

@@ -1,7 +1,7 @@
 package com.example.financialaccountingapplication.service.impl;
 
 import com.example.financialaccountingapplication.model.entity.Status;
-import com.example.financialaccountingapplication.model.entity.dto.StatusDTO;
+import com.example.financialaccountingapplication.model.dto.StatusDTO;
 import com.example.financialaccountingapplication.model.enums.OrderStatus;
 import com.example.financialaccountingapplication.model.mapper.StatusMapper;
 import com.example.financialaccountingapplication.repository.StatusRepository;
